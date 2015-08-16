@@ -4,42 +4,100 @@
 	<meta charset="UTF-8">
 	<base href="/">
 
-	<title>Starter Node and Angular</title>
+	<title>RUSH Salon | Your Hair Specialists</title>
 
 	<!-- CSS -->
-	<link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+	<!--<link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">-->
 	<link rel="stylesheet" href="css/style.css"> <!-- custom styles -->
+    <link rel="stylesheet" href="libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
 
 	<!-- JS -->
 	<script src="libs/angular/angular.min.js"></script>
 	<script src="libs/angular-route/angular-route.min.js"></script>
+    <script src="libs/jquery/dist/jquery.min.js"></script>
+    <script src="libs/materialize/js/materialize.min.js"></script>
 
 	<!-- ANGULAR CUSTOM -->
 	<script src="js/controllers/MainCtrl.js"></script>
-	<script src="js/controllers/NerdCtrl.js"></script>
-	<script src="js/services/NerdService.js"></script>
-	<script src="js/controllers/GeekCtrl.js"></script>
-	<script src="js/services/GeekService.js"></script>
+	<script src="js/controllers/AboutCtrl.js"></script>
+    <script src="js/controllers/ProductCtrl.js"></script>
+    <script src="js/controllers/ServiceCtrl.js"></script>
+    <script src="js/controllers/ContactCtrl.js"></script>
+    <script src="js/controllers/StaffCtrl.js"></script>
+    <script src="js/services/AboutService.js"></script>
+    <script src="js/services/StaffService.js"></script>
 	<script src="js/appRoutes.js"></script>
 	<script src="js/app.js"></script>
 </head>
-<body ng-app="sampleApp" ng-controller="NerdController">
+<body ng-app="sampleApp" ng-controller="MainController">
 <div class="container">
 	
 	<!-- HEADER -->
-	<nav class="navbar navbar-inverse">
-		<div class="navbar-header">
-			<a class="navbar-brand" href="/">Stencil: Node and Angular</a>
-		</div>
-		<ul class="nav navbar-nav">
-			<li><a href="/nerds">Nerds</a></li>
-			<li><a href="/geeks">Geeks</a></li>
-		</ul>
+	<nav class="z-depth-0">
+		<div class="nav-wrapper">
+            <div class="row col s12 center hide-on-large-only">
+                <h1>R U S H</h1>
+                <h5>salon</h5>
+                <hr class="style-two"/>
+            </div>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul id="nav-mobile" class="side-nav fixed z-depth-0">
+                <li class="logo">
+                    <a href="/">
+                        <h1 class="text-center">R U S H</h1>
+                        <h5 class="text-center">salon</h5>
+                    </a>
+                    <hr class="style-two"/>
+                </li>
+                <li><a href="/services">services</a></li>
+                <li><a href="/products">products</a></li>
+                <li><a href="/staff">staff</a></li>
+                <li><a href="/about">about us</a></li>
+                <li><a href="/contact">contact</a></li>
+            </ul>
+            <ul id="mobile-demo" class="side-nav">
+                <li class="logo">
+                    <a href="/">
+                        <h1 class="text-center">R U S H</h1>
+                        <h5 class="text-center">salon</h5>
+                    </a>
+                </li>
+                <li><a href="/services">services</a></li>
+                <li><a href="/products">products</a></li>
+                <li><a href="/staff">staff</a></li>
+                <li><a href="/about">about us</a></li>
+                <li><a href="/contact">contact</a></li>
+            </ul>
+        </div>
 	</nav>
 
 	<!-- ANGULAR DYNAMIC CONTENT -->
-	<div ng-view></div>
-
+    <div class="row">
+	    <div class="main col s12 l11 offset-l2" ng-view>
+        </div>
+    </div>
+    <div class="footer row">
+        <div class="col s12 m11 offset-m2">
+            <ul class="right">
+                <li>
+                    <a href="/">
+                        <img src="img/icons/mouse/32px/facebook.png">
+                    </a>
+                </li>
+                <li>
+                    <a href="/">
+                        <img src="img/icons/mouse/32px/twitter.png">
+                    </a>
+                </li>
+                <li>
+                    <a href="/">
+                        <img src="img/icons/mouse/32px/tumblr.png">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
 </div>
 </body>
 </html>

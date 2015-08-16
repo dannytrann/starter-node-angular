@@ -1,5 +1,6 @@
 angular.module('MainCtrl', []).controller('MainController', function($scope) {
-
-	$scope.tagline = 'To the moon and back!';	
+    $('.slider').slider({full_width: false});
+    $('.slider').slider('start');
+    $(".button-collapse").sideNav();
 
 });
