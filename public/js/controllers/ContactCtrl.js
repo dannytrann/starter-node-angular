@@ -1,9 +1,29 @@
-angular.module('ContactCtrl', []).controller('ContactController', function($scope) {
+var app = angular.module('ContactCtrl', []).controller('ContactController', function($scope) {
+    $scope.submit = function(){
+        var name, email, message;
+        name = $scope.name;
+        email = $scope.email;
+        message = $scope.message;
 
-	$scope.tagline = 'ContactContact';
+        //Prepare Ajax call
+        //change localhost to rushsalon
+        console.log("Sending..");
+        $.get("http://localhost:8080/send",{name:name,email:email,message:message},function(data){
+            if(data=="sent") {
+                console.log(data);
+
+            }
+        });
+        $scope.name = null;
+        $scope.email = null;
+        $scope.message = null;
+        //console.log($scope.name);
+        //console.log($scope.email);
+        //console.log($scope.message);
+    };
+
     // When the window has finished loading create our google map below
-    google.maps.event.addDomListener(window, 'load', init);
-
+    init();
     function init() {
         // Basic options for a simple Google Map
         // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
@@ -33,5 +53,4 @@ angular.module('ContactCtrl', []).controller('ContactController', function($scop
             title: 'Rush!'
         });
     }
-
 });

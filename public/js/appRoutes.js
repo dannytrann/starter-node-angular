@@ -31,8 +31,11 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
         .when('/products', {
             templateUrl: 'views/products.html',
             controller: 'ProductController'
+        })
+        .when('/portfolio', {
+            templateUrl: 'views/portfolio.html',
+            controller: 'PortfolioController'
         });
-
 	$locationProvider.html5Mode(true);
 
 }]);

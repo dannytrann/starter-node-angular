@@ -1,31 +1,31 @@
-<div class="contact jumbotron text-center">
+<div class="contact jumbotron text-center" ng-controller="ContactController as ContactCtrl">
 	<h1 class="center">CONTACT</h1>
 	<hr class="style-two">
 	<br>
     <div class="row">
-        <form class="col s12">
+        <form class="col s12" ng-submit="submit()">
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="first_name" type="text" class="validate">
+                    <input id="first_name" type="text" ng-model="name" class="validate">
                     <label for="first_name">Your Name</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="email" type="email" class="validate">
+                    <input id="email" type="email" ng-model="email" class="validate">
                     <label for="email">Your Email</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <textarea id="message" class="materialize-textarea"></textarea>
+                    <textarea id="message" ng-model="message" class="materialize-textarea"></textarea>
                     <label for="message">Message</label>
                 </div>
             </div>
             <div class="row center">
-                <div class="btn submit grey">submit</div>
+                <input type="submit" class="btn grey"/>
             </div>
         </form>
     </div>
-	<div id="map"></div>
+	<div id="map" ng-modal="map"></div>
 </div>

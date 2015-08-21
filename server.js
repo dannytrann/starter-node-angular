@@ -4,6 +4,7 @@ var app            = express();
 var mongoose       = require('mongoose');
 var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
+var nodemailer     = require("nodemailer");
 
 // configuration ===========================================
 	
@@ -20,6 +21,33 @@ app.use(bodyParser.urlencoded({ extended: true })); // parse application/x-www-f
 
 app.use(methodOverride('X-HTTP-Method-Override')); // override with the X-HTTP-Method-Override header in the request. simulate DELETE/PUT
 app.use(express.static(__dirname + '/public')); // set the static files location /public/img will be /img for users
+
+
+//Mailer   =================================================
+var smtpTransport = nodemailer.createTransport("SMTP",{
+    service: "Gmail",
+    auth: {
+        user: "rushsalonmessenger@gmail.com",
+        pass: "zby]EiO29Ji("
+    }
+});
+app.get('/send',function(req,res){
+    var mailOptions={
+        to : "forward@rushsalonyvr.com",
+        subject : "Name: "  + req.query.name + ", Email: " + req.query.email,
+        text : req.query.message
+    }
+    //console.log("mailOptions: " + mailOptions.test);
+    smtpTransport.sendMail(mailOptions, function(error, response){
+        if(error){
+            console.log(error);
+            res.end("error");
+        }else{
+            console.log("Message sent: " + response.message);
+            res.end("sent");
+        }
+    });
+});
 
 // routes ==================================================
 require('./app/routes')(app); // pass our application into our routes
